@@ -10,12 +10,6 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
-
-
-  <ItemGroup>
-    <Folder Include="Themes\" />
-  </ItemGroup>
-
   <ItemGroup>
     <Content Update="Default.json">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
@@ -42,6 +36,11 @@
   <ItemGroup>
     <PackageReference Include="Wisej-4" Version="4.0.*-*" />
     <PackageReference Include="System.Data.SqlClient" Version="4.*" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\QuickInfo\QuickInfo.csproj" />
   </ItemGroup>
 
 

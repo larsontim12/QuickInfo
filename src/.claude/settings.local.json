@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/DevOps/QuickInfo/**)",
+      "Bash(dir /s /b \"C:\\DevOps\\QuickInfo\")",
+      "Bash(findstr:*)",
+      "Bash(dotnet build:*)",
+      "Read(//c/**)",
+      "Bash(dir /s /b C:DevOpsQuickInfo*.sln)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

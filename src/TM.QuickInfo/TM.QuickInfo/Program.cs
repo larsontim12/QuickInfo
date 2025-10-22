@@ -12,7 +12,7 @@ namespace TM.QuickInfo
         /// <param name="args">Arguments from the URL.</param>
         static void Main(NameValueCollection args)
         {
-            new Page1().Show();
+            new MainPage().Show();
         }
     }
 }
