@@ -108,7 +108,7 @@ namespace QuickInfo
 
                 TimeSpan duration = resultDate - startDate;
                 string operationDesc = isAdd ? "Adding" : "Subtracting";
-                int absAmount = Math.Abs(amount);
+                int absAmount = System.Math.Abs(amount);
                 string unitPlural = absAmount == 1 ? unit : unit + "s";
 
                 return new object[]
@@ -120,7 +120,7 @@ namespace QuickInfo
                         ("Start Date:", $"{startDate:dddd, MMMM d, yyyy}"),
                         ("Operation:", $"{(isAdd ? "Add" : "Subtract")} {absAmount} {unitPlural}"),
                         ("Result Date:", $"{resultDate:dddd, MMMM d, yyyy}"),
-                        ("Days Difference:", $"{Math.Abs(duration.Days)} days")
+                        ("Days Difference:", $"{System.Math.Abs(duration.Days)} days")
                     }),
                     SectionHeader("Result Details:"),
                     NameValueTable(entries: new[]

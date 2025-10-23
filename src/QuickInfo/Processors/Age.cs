@@ -80,8 +80,8 @@ namespace QuickInfo
                             ("Date:", $"{birthDate:dddd, MMMM d, yyyy}"),
                             ("Days Until:", $"{daysUntil} days"),
                             ("Weeks Until:", $"{daysUntil / 7} weeks"),
-                            ("Months Until:", $"~{Math.Abs(monthsUntil)} months"),
-                            ("Years Until:", $"~{Math.Abs(yearsUntil)} years")
+                            ("Months Until:", $"~{System.Math.Abs(monthsUntil)} months"),
+                            ("Years Until:", $"~{System.Math.Abs(yearsUntil)} years")
                         })
                     };
                 }

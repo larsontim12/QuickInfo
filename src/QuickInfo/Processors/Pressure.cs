@@ -207,7 +207,7 @@ namespace QuickInfo
                 return "Low pressure (natural gas lines)";
             else if (psi < 14.7)
                 return "Below atmospheric pressure";
-            else if (Math.Abs(psi - 14.7) < 0.5)
+            else if (System.Math.Abs(psi - 14.7) < 0.5)
                 return "Standard atmospheric pressure (sea level)";
             else if (psi < 20)
                 return "Slightly above atmospheric";

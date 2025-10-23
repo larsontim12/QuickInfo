@@ -106,7 +106,7 @@ namespace QuickInfo
                 // Calculate compound interest
                 // A = P(1 + r/n)^(nt)
                 double rate = annualRate / 100.0;
-                double amount = principal * Math.Pow(1 + (rate / compoundsPerYear), compoundsPerYear * years);
+                double amount = principal * System.Math.Pow(1 + (rate / compoundsPerYear), compoundsPerYear * years);
                 double interest = amount - principal;
                 double percentGain = (interest / principal) * 100.0;
 
@@ -117,14 +117,14 @@ namespace QuickInfo
 
                 // Calculate year-by-year growth for first 5 years
                 var yearGrowth = new System.Text.StringBuilder();
-                for (int i = 1; i <= Math.Min(5, years); i++)
+                for (int i = 1; i <= System.Math.Min(5, years); i++)
                 {
-                    double yearAmount = principal * Math.Pow(1 + (rate / compoundsPerYear), compoundsPerYear * i);
+                    double yearAmount = principal * System.Math.Pow(1 + (rate / compoundsPerYear), compoundsPerYear * i);
                     yearGrowth.AppendLine($"Year {i}: ${yearAmount:N2}");
                 }
 
                 // Calculate effective annual rate
-                double effectiveRate = (Math.Pow(1 + (rate / compoundsPerYear), compoundsPerYear) - 1) * 100;
+                double effectiveRate = (System.Math.Pow(1 + (rate / compoundsPerYear), compoundsPerYear) - 1) * 100;
 
                 return new object[]
                 {

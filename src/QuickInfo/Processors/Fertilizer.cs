@@ -185,7 +185,7 @@ namespace QuickInfo
                 return "High Phosphorus (e.g., DAP, MAP)";
             if (k > 40 && n < 10 && p < 10)
                 return "High Potassium (e.g., Potash, Muriate of Potash)";
-            if (Math.Abs(n - p) <= 5 && Math.Abs(n - k) <= 5)
+            if (System.Math.Abs(n - p) <= 5 && System.Math.Abs(n - k) <= 5)
                 return "Balanced (All-Purpose)";
             if (n > p && n > k)
                 return "Nitrogen-Heavy";

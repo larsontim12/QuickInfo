@@ -6,8 +6,8 @@ namespace QuickInfo
 {
     public class ScientificCalculator : IProcessor
     {
-        private const double PI = Math.PI;
-        private const double E = Math.E;
+        private const double PI = System.Math.PI;
+        private const double E = System.Math.E;
 
         public object GetResult(Query query)
         {
@@ -99,7 +99,7 @@ namespace QuickInfo
                 {
                     return FixedParagraph("Cannot calculate square root of negative number");
                 }
-                double result = Math.Sqrt(value);
+                double result = System.Math.Sqrt(value);
                 return CreateMathResult($"√{value}", result, "Square Root");
             }
 
@@ -112,7 +112,7 @@ namespace QuickInfo
             {
                 double baseNum = double.Parse(powerMatch.Groups[1].Value);
                 double exponent = double.Parse(powerMatch.Groups[2].Value);
-                double result = Math.Pow(baseNum, exponent);
+                double result = System.Math.Pow(baseNum, exponent);
 
                 return new object[]
                 {
@@ -133,7 +133,7 @@ namespace QuickInfo
             if (absMatch.Success)
             {
                 double value = double.Parse(absMatch.Groups[1].Value);
-                double result = Math.Abs(value);
+                double result = System.Math.Abs(value);
                 return CreateMathResult($"abs({value})", result, "Absolute Value");
             }
 
@@ -173,7 +173,7 @@ namespace QuickInfo
             if (ceilMatch.Success)
             {
                 double value = double.Parse(ceilMatch.Groups[1].Value);
-                double result = Math.Ceiling(value);
+                double result = System.Math.Ceiling(value);
                 return CreateMathResult($"ceil({value})", result, "Ceiling (Round Up)");
             }
 
@@ -182,7 +182,7 @@ namespace QuickInfo
             if (floorMatch.Success)
             {
                 double value = double.Parse(floorMatch.Groups[1].Value);
-                double result = Math.Floor(value);
+                double result = System.Math.Floor(value);
                 return CreateMathResult($"floor({value})", result, "Floor (Round Down)");
             }
 
@@ -192,7 +192,7 @@ namespace QuickInfo
             {
                 double value = double.Parse(roundMatch.Groups[1].Value);
                 int decimals = roundMatch.Groups[2].Success ? int.Parse(roundMatch.Groups[2].Value) : 0;
-                double result = Math.Round(value, decimals);
+                double result = System.Math.Round(value, decimals);
                 return CreateMathResult($"round({value}, {decimals})", result, "Round");
             }
 
@@ -203,7 +203,7 @@ namespace QuickInfo
             {
                 double degrees = double.Parse(sinMatch.Groups[1].Value);
                 double radians = degrees * (PI / 180.0);
-                double result = Math.Sin(radians);
+                double result = System.Math.Sin(radians);
                 return CreateTrigResult($"sin({degrees}°)", result, degrees, "Sine");
             }
 
@@ -213,7 +213,7 @@ namespace QuickInfo
             {
                 double degrees = double.Parse(cosMatch.Groups[1].Value);
                 double radians = degrees * (PI / 180.0);
-                double result = Math.Cos(radians);
+                double result = System.Math.Cos(radians);
                 return CreateTrigResult($"cos({degrees}°)", result, degrees, "Cosine");
             }
 
@@ -223,7 +223,7 @@ namespace QuickInfo
             {
                 double degrees = double.Parse(tanMatch.Groups[1].Value);
                 double radians = degrees * (PI / 180.0);
-                double result = Math.Tan(radians);
+                double result = System.Math.Tan(radians);
                 return CreateTrigResult($"tan({degrees}°)", result, degrees, "Tangent");
             }
 
@@ -236,7 +236,7 @@ namespace QuickInfo
                 {
                     return FixedParagraph("Arc sine domain error: value must be between -1 and 1");
                 }
-                double radians = Math.Asin(value);
+                double radians = System.Math.Asin(value);
                 double degrees = radians * (180.0 / PI);
                 return CreateInverseTrigResult($"asin({value})", degrees, value, "Arc Sine");
             }
@@ -250,7 +250,7 @@ namespace QuickInfo
                 {
                     return FixedParagraph("Arc cosine domain error: value must be between -1 and 1");
                 }
-                double radians = Math.Acos(value);
+                double radians = System.Math.Acos(value);
                 double degrees = radians * (180.0 / PI);
                 return CreateInverseTrigResult($"acos({value})", degrees, value, "Arc Cosine");
             }
@@ -260,7 +260,7 @@ namespace QuickInfo
             if (input.StartsWith("atan") && atanMatch.Success)
             {
                 double value = double.Parse(atanMatch.Groups[1].Value);
-                double radians = Math.Atan(value);
+                double radians = System.Math.Atan(value);
                 double degrees = radians * (180.0 / PI);
                 return CreateInverseTrigResult($"atan({value})", degrees, value, "Arc Tangent");
             }
@@ -274,7 +274,7 @@ namespace QuickInfo
                 {
                     return FixedParagraph("Logarithm domain error: value must be positive");
                 }
-                double result = Math.Log(value);
+                double result = System.Math.Log(value);
                 return new object[]
                 {
                     Answer($"ln({value}) = {result:F6}"),
@@ -283,7 +283,7 @@ namespace QuickInfo
                     {
                         ("Expression:", $"ln({value})"),
                         ("Result:", $"{result:F6}"),
-                        ("Verification:", $"e^{result:F6} = {Math.Exp(result):F6}"),
+                        ("Verification:", $"e^{result:F6} = {System.Math.Exp(result):F6}"),
                         ("Base:", $"e = {E:F6}")
                     })
                 };
@@ -298,7 +298,7 @@ namespace QuickInfo
                 {
                     return FixedParagraph("Logarithm domain error: value must be positive");
                 }
-                double result = Math.Log10(value);
+                double result = System.Math.Log10(value);
                 return new object[]
                 {
                     Answer($"log₁₀({value}) = {result:F6}"),
@@ -307,7 +307,7 @@ namespace QuickInfo
                     {
                         ("Expression:", $"log₁₀({value})"),
                         ("Result:", $"{result:F6}"),
-                        ("Verification:", $"10^{result:F6} = {Math.Pow(10, result):F6}")
+                        ("Verification:", $"10^{result:F6} = {System.Math.Pow(10, result):F6}")
                     })
                 };
             }
@@ -317,7 +317,7 @@ namespace QuickInfo
             if (expMatch.Success)
             {
                 double value = double.Parse(expMatch.Groups[1].Value);
-                double result = Math.Exp(value);
+                double result = System.Math.Exp(value);
                 return new object[]
                 {
                     Answer($"e^{value} = {result:F6}"),

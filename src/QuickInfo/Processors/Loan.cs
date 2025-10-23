@@ -88,8 +88,8 @@ namespace QuickInfo
                 else
                 {
                     // Standard amortization formula: P * [r(1+r)^n] / [(1+r)^n - 1]
-                    monthlyPayment = principal * (monthlyRate * Math.Pow(1 + monthlyRate, totalMonths)) /
-                                   (Math.Pow(1 + monthlyRate, totalMonths) - 1);
+                    monthlyPayment = principal * (monthlyRate * System.Math.Pow(1 + monthlyRate, totalMonths)) /
+                                   (System.Math.Pow(1 + monthlyRate, totalMonths) - 1);
                 }
 
                 double totalPayment = monthlyPayment * totalMonths;
@@ -218,8 +218,8 @@ namespace QuickInfo
                 return principal - (principal / totalMonths * paymentsMade);
             }
 
-            double numerator = Math.Pow(1 + monthlyRate, totalMonths) - Math.Pow(1 + monthlyRate, paymentsMade);
-            double denominator = Math.Pow(1 + monthlyRate, totalMonths) - 1;
+            double numerator = System.Math.Pow(1 + monthlyRate, totalMonths) - System.Math.Pow(1 + monthlyRate, paymentsMade);
+            double denominator = System.Math.Pow(1 + monthlyRate, totalMonths) - 1;
 
             return principal * (numerator / denominator);
         }

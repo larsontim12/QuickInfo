@@ -176,7 +176,7 @@ namespace QuickInfo
 
         private string GetScientificContext(double kelvin)
         {
-            if (Math.Abs(kelvin) < 0.01)
+            if (System.Math.Abs(kelvin) < 0.01)
                 return "Absolute zero - theoretically the lowest possible temperature";
             else if (kelvin < 4.2)
                 return "Liquid helium range - used in superconductivity research";
@@ -184,11 +184,11 @@ namespace QuickInfo
                 return "Liquid nitrogen range - common cryogenic coolant";
             else if (kelvin < 195)
                 return "Dry ice sublimation range (CO₂)";
-            else if (Math.Abs(kelvin - 273.15) < 0.01)
+            else if (System.Math.Abs(kelvin - 273.15) < 0.01)
                 return "Water freezing point at standard pressure";
-            else if (Math.Abs(kelvin - 310.15) < 1)
+            else if (System.Math.Abs(kelvin - 310.15) < 1)
                 return "Normal human body temperature";
-            else if (Math.Abs(kelvin - 373.15) < 0.5)
+            else if (System.Math.Abs(kelvin - 373.15) < 0.5)
                 return "Water boiling point at standard pressure";
             else if (kelvin > 1000 && kelvin < 2000)
                 return "Molten metal range (aluminum, copper)";
